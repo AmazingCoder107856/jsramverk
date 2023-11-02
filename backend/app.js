@@ -48,11 +48,6 @@ app.use('/tickets', tickets);
 app.use('/codes', codes);
 app.use('/trains', trains);
 
-// Start server
-httpServer.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-
 // Used for moving trains
 trainsModel.fetchTrainPositions(io);
 
@@ -78,6 +73,11 @@ app.use((err, req, res, next) => {
           }
       ]
   });
+});
+
+// Start server
+httpServer.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 
 export default httpServer;
